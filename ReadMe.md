@@ -1,4 +1,4 @@
-![](https://komarev.com/ghpvc/?username=hamitmizrak)
+![](https://komarev.com/ghpvc/?username=yagizhandemirci)
 
 
 ### Gereksinimler
@@ -19,13 +19,11 @@ Spring Web
 Spring Data JPA
 Spring Security
 
-Thymeleaf
 Lombok
 Validation
 
 H2 Database
-Mysql
-Postgresql
+
 
 Spring Boot DevTools
 Spring Configuration Processor
