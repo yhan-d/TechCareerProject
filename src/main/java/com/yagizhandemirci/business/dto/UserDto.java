@@ -1,6 +1,10 @@
 package com.yagizhandemirci.business.dto;
 
-import lombok.*;
+import com.yagizhandemirci.business.base.BaseDto;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 // LOMBOK
 @Data
@@ -9,9 +13,8 @@ import lombok.*;
 @Builder
 
 
-public class UserDto {
+public class UserDto extends BaseDto {
 
-    private Long userId;
     private String userFirstName;
     private String userLastName;
     private String userEmail;

@@ -1,4 +1,4 @@
-package com.yagizhandemirci.data.entity;
+package com.yagizhandemirci.data.base;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
@@ -32,7 +32,7 @@ public abstract class BaseEntity {
 
     @Column(name = "created_date")
     @CreatedDate
-    private Date createdDate;
+    public Date createdDate;
 
     @Column(name = "updated_by")
     @LastModifiedBy
@@ -40,7 +40,7 @@ public abstract class BaseEntity {
 
     @Column(name = "update_date")
     @LastModifiedDate
-    private Date updateDate;
+    public Date updateDate;
 
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp

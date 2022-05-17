@@ -1,5 +1,6 @@
 package com.yagizhandemirci.data.entity;
 
+import com.yagizhandemirci.data.base.BaseEntity;
 import lombok.*;
 
 import javax.persistence.Column;
