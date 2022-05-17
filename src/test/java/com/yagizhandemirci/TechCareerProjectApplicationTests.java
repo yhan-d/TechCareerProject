@@ -29,6 +29,7 @@ class TechCareerProjectApplicationTests implements IMyTest {
         ProductEntity entity=new ProductEntity();
         entity.setProductName("Product1");
         entity.setProductDescription("Product1Description");
+        entity.setProductUnitPrice(5468);
         entity.setProductPhoto("photo.jpeg");
         productRepository.save(entity);
         //eger: 1 id data bulamazsa Exception fırlat: java.util.NoSuchElementException: No value present

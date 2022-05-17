@@ -12,6 +12,8 @@ import lombok.*;
 
 public class ProductDto extends BaseDto {
 
-    private String Name;
-    private double UnitPrice ;
+    private String productName;
+    private String productDescription;
+    private double productUnitPrice ;
+    private String productPhoto;
 }

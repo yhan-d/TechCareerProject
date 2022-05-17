@@ -26,6 +26,9 @@ public class ProductEntity extends BaseEntity {
     @Column(name ="product_description")
     private String productDescription;
 
+    @Column(name="product_unit_price")
+    private double productUnitPrice;
+
     @Column(name = "product_photo")
     private String productPhoto;
 

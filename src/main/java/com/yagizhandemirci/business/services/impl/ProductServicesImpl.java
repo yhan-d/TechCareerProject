@@ -76,6 +76,7 @@ public class ProductServicesImpl implements IProductServices {
         ProductEntity findProductEntity = productRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Product not found with id " + id));
 
         findProductEntity.setProductName(productEntity.getProductName());
+        findProductEntity.setProductUnitPrice(productEntity.getProductUnitPrice());
         findProductEntity.setProductDescription(productEntity.getProductDescription());
         findProductEntity.setProductPhoto(productEntity.getProductPhoto());
         ProductEntity pEntity = productRepository.save(findProductEntity);
