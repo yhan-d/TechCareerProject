@@ -1,6 +1,6 @@
 package com.yagizhandemirci.business.dto;
 
-import com.yagizhandemirci.business.base.BaseDto;
+
 import lombok.*;
 
 // LOMBOK
@@ -10,8 +10,9 @@ import lombok.*;
 @Builder
 
 
-public class ProductDto extends BaseDto {
+public class ProductDto {
 
+    private Long productId;
     private String productName;
     private String productDescription;
     private double productUnitPrice ;

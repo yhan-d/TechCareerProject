@@ -32,4 +32,5 @@ public class ProductEntity extends BaseEntity {
     @Column(name = "product_photo")
     private String productPhoto;
 
+
 }

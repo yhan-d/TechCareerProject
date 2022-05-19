@@ -3,6 +3,7 @@ package com.yagizhandemirci;
 import com.yagizhandemirci.data.entity.ProductEntity;
 import com.yagizhandemirci.data.repository.IProductRepository;
 import com.yagizhandemirci.mytest.IMyTest;
+import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,6 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+@Log4j2
 class TechCareerProjectApplicationTests implements IMyTest {
 
     @Autowired
@@ -27,13 +29,13 @@ class TechCareerProjectApplicationTests implements IMyTest {
     @Test
     public void testCreate() {
         ProductEntity entity=new ProductEntity();
-        entity.setProductName("Product1");
-        entity.setProductDescription("Product1Description");
-        entity.setProductUnitPrice(5468);
-        entity.setProductPhoto("photo.jpeg");
+        entity.setProductName("Product7");
+        entity.setProductDescription("Product7Description");
+        entity.setProductUnitPrice(4778);
+        entity.setProductPhoto("photo7.jpeg");
         productRepository.save(entity);
         //eger: 1 id data bulamazsa Exception fırlat: java.util.NoSuchElementException: No value present
-        assertNotNull(productRepository.findById(1L).get());
+        assertNotNull(productRepository.findById(7L).get());
     }
     //FIND
     @Override
@@ -55,12 +57,12 @@ class TechCareerProjectApplicationTests implements IMyTest {
     @Override
     @Test
     public void testUpdate() {
-        ProductEntity entity=productRepository.findById(1L).get();
+        ProductEntity entity=productRepository.findById(7L).get();
         entity.setProductName("ProductUpdate");
         productRepository.save(entity);
         //org.opentest4j.AssertionFailedError: expected: not equal but was: <employeename55>
-        //unexpected:Beklenen
-        assertNotEquals("Product2",productRepository.findById(2L).get().getProductName());
+        //unexpected:Beklenmeyen
+        assertNotEquals("Product7",productRepository.findById(7L).get().getProductName());
     }
     //DELETE
     @Override
