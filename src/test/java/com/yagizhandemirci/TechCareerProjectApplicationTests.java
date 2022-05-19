@@ -29,13 +29,12 @@ class TechCareerProjectApplicationTests implements IMyTest {
     @Test
     public void testCreate() {
         ProductEntity entity=new ProductEntity();
-        entity.setProductName("Product7");
-        entity.setProductDescription("Product7Description");
+        entity.setProductName("Product1");
+        entity.setProductDescription("Product1Description");
         entity.setProductUnitPrice(4778);
-        entity.setProductPhoto("photo7.jpeg");
         productRepository.save(entity);
         //eger: 1 id data bulamazsa Exception fırlat: java.util.NoSuchElementException: No value present
-        assertNotNull(productRepository.findById(7L).get());
+        assertNotNull(productRepository.findById(1L).get());
     }
     //FIND
     @Override

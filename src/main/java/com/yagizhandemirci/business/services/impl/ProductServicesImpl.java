@@ -78,7 +78,6 @@ public class ProductServicesImpl implements IProductServices {
         findProductEntity.setProductName(productEntity.getProductName());
         findProductEntity.setProductUnitPrice(productEntity.getProductUnitPrice());
         findProductEntity.setProductDescription(productEntity.getProductDescription());
-        findProductEntity.setProductPhoto(productEntity.getProductPhoto());
         ProductEntity pEntity = productRepository.save(findProductEntity);
         ProductDto pDto = EntityToDto(pEntity);
         return ResponseEntity.ok(pDto);
