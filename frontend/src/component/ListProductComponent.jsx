@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ProductService from '../services/ProductService'
 
 class ListProductComponent extends Component {
-  //constructro
+  
   constructor(props) {
    
     super(props)
@@ -30,7 +30,7 @@ class ListProductComponent extends Component {
 
 
   updateProduct(id) {
-    this.props.history.push(`/update-product/${id}`)
+    this.props.history.push(`/add-product/${id}`)
   }
 
 
@@ -83,7 +83,7 @@ class ListProductComponent extends Component {
                               <td>{product.productDiscription}</td>
                               <td>{product.productUnitPrice}</td>
                               <td>
-                              <button onClick = { () => this.viewProduct(product.productId)} className="btn btn-info">View</button>
+                              <button onClick = { () => this.viewProduct(product.productId)} className="btn btn-info">Detail</button>
                                   <button style={{ marginLeft: "20px"}} onClick = { () => this.updateProduct(product.productId)} className="btn btn-info">Update</button>
                                   <button style={{ marginLeft: "20px"}} onClick = { () => this.deleteProduct(product.productId)} className="btn btn-danger">Delete</button>
                               </td>

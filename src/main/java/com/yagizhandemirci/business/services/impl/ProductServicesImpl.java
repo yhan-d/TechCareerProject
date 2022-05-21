@@ -40,7 +40,7 @@ public class ProductServicesImpl implements IProductServices {
     //http://localhost:8080/save/employees
     @Override
     @PostMapping("/save/products")
-    public ProductDto createProduct(ProductDto productDto) {
+    public ProductDto createProduct(@RequestBody ProductDto productDto) {
         ProductEntity productEntity = DtoToEntity(productDto);
         productRepository.save(productEntity);
         log.info("Product Eklendi");

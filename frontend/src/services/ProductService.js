@@ -24,6 +24,8 @@ class ProductService  {
     deleteProduct(productId){
         return axios.delete(PRODUCT_API_BASE_URL + '/' + productId);
     }
+
+    
 }
 
 export default new ProductService();

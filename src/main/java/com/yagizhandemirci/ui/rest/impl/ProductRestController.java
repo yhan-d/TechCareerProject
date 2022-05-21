@@ -31,7 +31,7 @@ public class ProductRestController implements IProductRestController {
     //http://localhost:8080/api/v1/products
     @Override
     @PostMapping("/products")
-    public ProductDto createProduct(ProductDto productDto) {
+    public ProductDto createProduct(@RequestBody ProductDto productDto) {
        productServices.createProduct(productDto);
        return productDto;
     }
@@ -54,7 +54,7 @@ public class ProductRestController implements IProductRestController {
     //http://localhost:8080/api/v1/produts/1
     @Override
     @PutMapping("/products/{id}")
-    public ResponseEntity<ProductDto> updateProduct(Long id, ProductDto productDto) throws Throwable {
+    public ResponseEntity<ProductDto> updateProduct(@PathVariable(name = "id") Long id, @RequestBody ProductDto productDto) throws Throwable {
         ResponseEntity<ProductDto> entity= productServices.getProductById(id);
         productServices.updateProduct(id,productDto);
         return ResponseEntity.ok(productDto);

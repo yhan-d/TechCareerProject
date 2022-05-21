@@ -6,13 +6,11 @@ class ViewProductComponent extends Component {
     constructor(props) {
         super(props)
         this.state = {
-          //gelen id almak
           id: this.props.match.params.id,
           product: {},
         }
       }
     
-      //cdm
       componentDidMount() {
         ProductService.getProductById(this.state.id).then((res) => {
           this.setState({ product: res.data })
@@ -23,9 +21,9 @@ class ViewProductComponent extends Component {
         return (
             <div class="col d-flex justify-content-center">
 
-            <Card  className="text-center" style={{ width: '18rem', backgroundColor:'beige'}} >
+            <Card  className="text-center" style={{ height: '15rem', width: '25rem', backgroundColor:'beige' , margin:'150px'}} >
                 <Card.Header  style={{backgroundColor:'beige',color:'chocolate'}}>
-                <i className="fas fa-angle-right"></i><strong> ID: {this.state.product.productId} </strong> -  Product Detail
+                <i className="fas fa-angle-right"></i><strong> Product Detail - ID: </strong> <text style={{color:'black'}}>{this.state.product.productId}</text> 
               
                 </Card.Header>
                 <Card.Body>
