@@ -28,7 +28,7 @@ public class ProductRestController implements IProductRestController {
         return "index";
     }
 
-    //http://localhost:8080/api/v1/employees
+    //http://localhost:8080/api/v1/products
     @Override
     @PostMapping("/products")
     public ProductDto createProduct(ProductDto productDto) {
