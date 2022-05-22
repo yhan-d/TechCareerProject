@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import ProductService from '../services/ProductService';
+import Swal from 'sweetalert2';
 
 class ViewProductComponent extends Component {
     constructor(props) {
@@ -11,6 +12,32 @@ class ViewProductComponent extends Component {
         }
       }
     
+      deleteProduct(id){
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.value) {
+            ProductService.deleteProduct(id).then((res) => {
+              this.props.history.push('/products')
+              Swal.fire(
+                'Deleted!',
+                'Product has been deleted.',
+                'success'
+              );
+            },
+            (error) => {
+              console.error(error);
+            });
+          }
+        })
+    
+      }
       componentDidMount() {
         ProductService.getProductById(this.state.id).then((res) => {
           this.setState({ product: res.data })
@@ -31,7 +58,7 @@ class ViewProductComponent extends Component {
                     <Card.Text style={{color:'black'}}><i style={{color:'chocolate'}} class="far fa-file-alt"></i><strong style={{color:'chocolate'}}> Discription: </strong>{this.state.product.productDiscription}</Card.Text>
                     <Card.Text style={{color:'black'}}><i style={{color:'chocolate'}} class="fas fa-money-bill"></i><strong style={{color:'chocolate'}}> UnitPrice: </strong> {this.state.product.productUnitPrice} $</Card.Text>
                     <Button variant="info"><i class="far fa-edit"></i> Update</Button>
-                    <Button style={{ marginLeft: "20px"}} variant="danger"> <i class="far fa-trash-alt"></i> Delete</Button>
+                    <Button style={{ marginLeft: "20px"}} variant="danger" onClick = { () => this.deleteProduct(this.state.product.productId) } className="btn btn-danger"><i class="far fa-trash-alt"></i> Delete</Button>
                 </Card.Body>
             </Card>
             </div>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ProductService from '../services/ProductService'
+import Swal from 'sweetalert2'
 
 class ListProductComponent extends Component {
   
@@ -34,14 +35,35 @@ class ListProductComponent extends Component {
   }
 
 
-  deleteProduct(id) {
-    ProductService.deleteProduct(id).then((res) => {
-      this.setState({
-        products: this.state.products.filter(
-          (product) => product.id !== id,
-        ),
-      })
+  deleteProduct(id){
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.value) {
+        ProductService.deleteProduct(id).then((res) => {
+            this.setState({
+              products: this.state.products.filter(
+                (product) => product.id !== id,
+              )
+        })
+          Swal.fire(
+            'Deleted!',
+            'Product has been deleted.',
+            'success'
+          );
+        },
+        (error) => {
+          console.error(error);
+        });
+      }
     })
+    
   }
 
 

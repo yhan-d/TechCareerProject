@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button, Card, Form } from 'react-bootstrap';
 import ProductService from '../services/ProductService';
 
 class CreateProductComponent extends Component {
@@ -6,10 +7,10 @@ class CreateProductComponent extends Component {
        super(props)
 
        this.state ={
-        id: this.props.match.params.id,
-           productName:'',
-           productDiscription:'',
-           productUnitPrice:'',
+            id: this.props.match.params.id,
+            productName:'',
+            productDiscription:'',
+            productUnitPrice:'',
        }
 
        this.changeProductNameHandler = this.changeProductNameHandler.bind(this);
@@ -27,7 +28,8 @@ class CreateProductComponent extends Component {
         }else{
             ProductService.getProductById(this.state.id).then( (res) =>{
                 let product = res.data;
-                this.setState({productName: product.productName,
+                this.setState({
+                    productName: product.productName,
                     productDiscription: product.productDiscription,
                     productUnitPrice : product.productUnitPrice
                 });
@@ -67,7 +69,7 @@ class CreateProductComponent extends Component {
             this.props.history.push('/products')
         }
 
-    getTitle(){
+        getTitle(){
         if(this.state.id === '_add'){
             return <h3 className="text-center">Add Product</h3>
         }else{
@@ -78,39 +80,34 @@ class CreateProductComponent extends Component {
     render() {
         return (
             <div class="col d-flex justify-content-center">
-            <br></br>
-               <div className = "container">
-                    <div className = "row">
-                        <div className = "card col-md-6 offset-md-3 offset-md-3">
-                            {
-                                this.getTitle()
-                            }
-                            <div className = "card-body">
-                                <form>
-                                    <div className="form-group">
-                                        <label>Product Name:</label>
-                                        <input placeholder="Enter Product Name" name="productName" className="form-control"
-                                                            value={this.state.productName} onChange={this.changeProductNameHandler} required />
-                                        </div>
-                                        <div className="form-group">
-                                        <label>Product Discription:</label>
-                                        <input placeholder="Enter Product Discription" name="productDiscription" className="form-control"
-                                                            value={this.state.productDiscription} onChange={this.changeProductDiscriptionHandler} required />
-                                        </div>
-                                        <div className="form-group">
-                                        <label>Product Unit Price:</label>
-                                        <input placeholder="Enter Product Discription" name="productUnitPrice" className="form-control"
-                                                            value={this.state.productUnitPrice} onChange={this.changeProductUnitPriceHandler} required />
-                                    </div>
-                                        <button className="btn btn-success" onClick={this.saveOrUpdateProduct} style={{ margin: "10px 0px 15px 5px"}}>Add</button>
-                                        <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={ {margin: "10px 10px 15px 5px"} }>Cancel</button>           
-                                    </form>
-                            </div>
-                        </div>
-                    </div>
 
-               </div>
-</div>
+            <Card  className="text-center" style={{ height: '25rem', width: '25rem', backgroundColor:'beige' , margin:'150px'}} >
+                <Card.Header  style={{backgroundColor:'beige',color:'chocolate'}}> {this.getTitle()}
+                </Card.Header>
+                <Card.Body>
+                    <Form style={{color:'chocolate'}}>
+                        <Form.Group className="mb-3" >
+                            <Form.Label >Product Name</Form.Label>
+                            <Form.Control type="text" placeholder="Enter Product Name" defaultValue={this.state.productName} onChange={this.changeProductNameHandler} required/>
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" >
+                            <Form.Label>Product Discription</Form.Label>
+                            <Form.Control type="text" placeholder="Discription" defaultValue={this.state.productDiscription} onChange={this.changeProductDiscriptionHandler} required/>
+                        </Form.Group>
+                        
+                        <Form.Group className="mb-3" >
+                            <Form.Label>Unit Price</Form.Label>
+                            <Form.Control type="text" placeholder="Unit Price" defaultValue={this.state.productUnitPrice} onChange={this.changeProductUnitPriceHandler} required/>
+                        </Form.Group>
+
+                        <Button type='submit' variant="success" onClick={this.saveOrUpdateProduct}> <i class="fas fa-check"></i> Add</Button>
+                        <Button style={{ marginLeft: "20px"}} variant="danger" onClick={this.cancel.bind(this)}> <i class="far fa-trash-alt"></i> Cancel</Button>
+                        </Form>
+                </Card.Body>
+            </Card>
+            </div>
+
         );
     }
 
