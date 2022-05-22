@@ -44,3 +44,4 @@
 2022-05-22 12:18:01.118  INFO 18820 --- [http-nio-8080-exec-10] c.y.b.services.impl.ProductServicesImpl  : Product Eklendi
 2022-05-22 12:29:51.588  INFO 18820 --- [http-nio-8080-exec-8] c.y.b.services.impl.ProductServicesImpl  : Product Eklendi
 2022-05-22 12:30:13.345  INFO 18820 --- [http-nio-8080-exec-9] c.y.b.services.impl.ProductServicesImpl  : Product Eklendi
+2022-05-22 12:58:48.896  INFO 18820 --- [http-nio-8080-exec-9] c.y.b.services.impl.ProductServicesImpl  : Product Eklendi

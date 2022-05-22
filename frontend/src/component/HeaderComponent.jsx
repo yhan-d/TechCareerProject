@@ -10,13 +10,11 @@ export default class HeaderComponent extends Component {
     return (
         <Navbar  expand="lg" style={{backgroundColor:'chocolate'}}>
         <Container>
-          <Navbar.Brand style={{color:'white'}} href="#home">React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand style={{color:'white'}} href={'/products'}>My React Example</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link style={{color:'white'}} href="#home">Home</Nav.Link>
-              <Nav.Link style={{color:'white'}} href="#link">Link</Nav.Link>
-              <Nav.Link style={{color:'white'}} href="#link">Link</Nav.Link>
+              <Nav.Link style={{color:'white'}} href={'/products'}>Home</Nav.Link>
             </Nav>
           </Navbar.Collapse>
           <Navbar.Collapse className="justify-content-end">

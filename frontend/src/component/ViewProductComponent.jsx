@@ -10,8 +10,14 @@ class ViewProductComponent extends Component {
           id: this.props.match.params.id,
           product: {},
         }
+        this.updateProduct = this.updateProduct.bind(this)
+        this.deleteProduct = this.deleteProduct.bind(this)
       }
     
+      updateProduct(id) {
+        this.props.history.push(`/add-product/${id}`)
+      }
+
       deleteProduct(id){
         Swal.fire({
           title: 'Are you sure?',
@@ -57,7 +63,7 @@ class ViewProductComponent extends Component {
                     <Card.Title style={{color:'black'}}><i style={{color:'chocolate'}} class="far fa-address-card"></i><strong style={{color:'chocolate'}}> Name: </strong>{this.state.product.productName}</Card.Title>
                     <Card.Text style={{color:'black'}}><i style={{color:'chocolate'}} class="far fa-file-alt"></i><strong style={{color:'chocolate'}}> Discription: </strong>{this.state.product.productDiscription}</Card.Text>
                     <Card.Text style={{color:'black'}}><i style={{color:'chocolate'}} class="fas fa-money-bill"></i><strong style={{color:'chocolate'}}> UnitPrice: </strong> {this.state.product.productUnitPrice} $</Card.Text>
-                    <Button variant="info"><i class="far fa-edit"></i> Update</Button>
+                    <Button variant="info" onClick = { () => this.updateProduct(this.state.product.productId)}><i class="far fa-edit"></i> Update</Button>
                     <Button style={{ marginLeft: "20px"}} variant="danger" onClick = { () => this.deleteProduct(this.state.product.productId) } className="btn btn-danger"><i class="far fa-trash-alt"></i> Delete</Button>
                 </Card.Body>
             </Card>
